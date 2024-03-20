@@ -6,6 +6,9 @@ namespace PatrolPal.Controllers
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
     {
+        private readonly EntityContext _dbContext;
+
+
         private static readonly string[] Summaries = new[]
         {
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
@@ -13,9 +16,11 @@ namespace PatrolPal.Controllers
 
         private readonly ILogger<WeatherForecastController> _logger;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public WeatherForecastController(ILogger<WeatherForecastController> logger, EntityContext dbContext)
         {
             _logger = logger;
+            _dbContext = dbContext;
+
         }
 
         [HttpGet(Name = "GetWeatherForecast")]
@@ -27,6 +32,8 @@ namespace PatrolPal.Controllers
                 TemperatureC = Random.Shared.Next(-20, 55),
                 Summary = Summaries[Random.Shared.Next(Summaries.Length)]
             })
+
+
             .ToArray();
         }
     }
