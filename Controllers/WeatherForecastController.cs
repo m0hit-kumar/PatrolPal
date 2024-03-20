@@ -1,4 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
+using PatrolPal.Model;
+using System.Xml;
 
 namespace PatrolPal.Controllers
 {
@@ -35,6 +37,21 @@ namespace PatrolPal.Controllers
 
 
             .ToArray();
+        }
+
+        [HttpPost(Name = "User")]
+        public IActionResult Post([FromBody] User user)
+        {
+            if (user == null)
+            {
+
+                return BadRequest("Invalid data");
+
+            }
+            _dbContext.Users.Add(user);
+            _dbContext.SaveChanges();
+
+            return Ok("User Created Succefully");
         }
     }
 }
