@@ -18,7 +18,7 @@ if (string.IsNullOrEmpty(dbConnectionString))
 // Use the connection string in your application
 Console.WriteLine("Database connection string: " + dbConnectionString);
 
-builder.Services.AddDbContext<EntityContext>(options => options.UseSqlServer("Server=DESKTOP-EQHKIBK\\SQLEXPRESS; Database=patrol_pal; Integrated Security=true; MultipleActiveResultSets=true; TrustServerCertificate=True;"));
+builder.Services.AddDbContext<EntityContext>(options => options.UseSqlServer("Server=PEACE\\SQLEXPRESS; Database=patrol_pal; Integrated Security=true; MultipleActiveResultSets=true; TrustServerCertificate=True;"));
 
 
 // Add services to the container.
