@@ -1,4 +1,6 @@
-﻿namespace PatrolPal.Model
+﻿using PatrolPal.Enum;
+
+namespace PatrolPal.Model
 {
     public class CameraLocation : Audit
     {
@@ -9,5 +11,6 @@
         public DateTime? LastWorkingDate { get; set; }
         public bool IsGov { get; set; } = false;
         public string? OwnerDetails { get; set; }
+        public DistrictEnum District { get; set; }
     }
 }
